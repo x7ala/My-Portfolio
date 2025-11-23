@@ -1,0 +1,165 @@
+/* Page container */
+.experience-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(
+    to right,
+    #FFF8F0 900px,   /* left side same as container */
+    #d9c1c1 100%      /* darker pale color for right side */
+  );
+    display: block; 
+}
+
+.experience-page{
+  max-width: 900px;
+  padding: 40px 20px;
+
+    opacity: 0;
+  transform: translateY(20px);
+
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.experience-title {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  gap: 10px; /* space between icon and text */
+  color: #7c4e4a;
+}
+
+
+.heading-icon {
+  font-size: 2.2rem;
+  color: #a76684; 
+}
+
+
+
+/* Timeline wrapper */
+.timeline {
+  position: relative;
+  margin-left: 40px;
+}
+
+/* Each timeline item */
+.timeline-item {
+  position: relative;
+  padding-bottom: 60px;
+}
+
+/* Dot */
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: #ff72b6; /* your pink theme */
+  border-radius: 50%;
+  position: absolute;
+  left: -40px;
+  top: 5px;
+}
+
+/* Vertical line */
+.timeline-line {
+  position: absolute;
+  width: 3px;
+  background: #c8c8c8;
+  top: 25px;
+  left: -33px;
+  height: calc(100% - 5px);
+}
+
+/* Content */
+.timeline-content {
+  background: transparent;
+  padding: 10px 5px 10px 0;
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.timeline-content h4 {
+  margin: 4px 0 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.timeline-content p {
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.timeline-dates {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.timeline-skeleton {
+  height: 80px;
+  margin-bottom: 30px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* spacing between logo and text */
+  margin-bottom: 5px;
+}
+
+/* Company logo */
+.company-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; 
+  object-fit: cover;
+}
+
+.company-name {
+  margin: 0;
+}
+
+
+.location-text {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .timeline {
+    margin-left: 25px;
+  }
+  .timeline-dot {
+    left: -25px;
+  }
+  .timeline-line {
+    left: -19px;
+  }
+}

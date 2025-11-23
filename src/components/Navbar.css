@@ -1,0 +1,155 @@
+/* Navbar container */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #edc5d9;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  box-sizing: border-box; /* ensures padding is included in width */
+  overflow-x: hidden;      /* prevent horizontal scroll */
+}
+
+.myName{
+  margin: 0;           /* remove huge default h1 margin */
+  font-size: 30px;
+  color: #7a1111;
+    opacity: 0;
+  transform: translateY(20px);
+
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.5s;
+  font-style: italic;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pf{
+  font-size: 20px;
+  margin: 0;           /* remove default <p> margin */
+  margin-top: 2px;     /* tiny spacing under name */
+  text-align: center;
+  color: #7a1111;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  flex-direction: row;      /* keep logo + text side-by-side */
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;   /* ONLY text stacks vertically */
+  line-height: 1.1;
+}
+
+.logo-img {
+  width: 60px;   /* size of the logo */
+  height: 60px;
+  transition: transform 0.3s ease, filter 0.3s ease; /* smooth hover */
+}
+
+/* Hover effect */
+.logo-img:hover {
+  transform: scale(1.2);  /* slightly bigger on hover */
+  cursor: pointer;
+}
+
+
+
+/* Desktop menu */
+.menu {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Fancy underline hover effect */
+.menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #f81d8e;
+  transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* Mobile toggle (hamburger) */
+.toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ============================= */
+/* MOBILE RESPONSIVE STYLES */
+/* ============================= */
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 60%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #111;
+    transition: right 0.4s ease;
+  }
+
+  .menu.open {
+    right: 0;
+  }
+
+  .menu a {
+    font-size: 1.2rem;
+  }
+
+  .toggle {
+    display: block;
+  }
+
+
+  .logo img, .logo svg {
+  width: 50px;
+  height: auto;
+}
+
+
+
+}

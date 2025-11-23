@@ -1,0 +1,264 @@
+.projects-page {
+  padding: 2rem;
+  max-width: 100%;
+  box-sizing: border-box; /* important */
+  margin: 0 auto;
+  background-color: #FFF8F0;
+
+      opacity: 0; /* important so delay works */
+    animation: fadeInUp 0.7s ease-out forwards;
+    animation-delay: 0.2s;
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;          
+  margin-bottom: 1.5rem;         /* space below header */
+}
+
+.projects-header h1 {
+  margin: 0;
+  text-align: left; /* make sure title is left-aligned */
+  color: #7c4e4a;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.heading-icon {
+  font-size: 2.2rem;
+  color: #a76684; 
+}
+
+.projects-subtitle {
+  margin-top: 15px;
+  text-align: left; /* make p left-aligned under h1 */
+  font-size: 17px;
+  color: #7c4e4a;
+}
+
+
+.projects-header select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+}
+
+
+.projects-page select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 1.5rem; /* space between dropdown and grid */
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+}
+
+.projects-page select:focus {
+  outline: none;
+  border-color: #ff72b6; /* highlight on focus */
+}
+
+.project-skeleton {
+  background: #e0e0e0;
+  border-radius: 12px;
+  height: 280px;
+  width: 100%;
+  margin-bottom: 20px;
+
+  opacity: 0;
+  animation:
+    fadeIn 0.4s ease-out forwards,
+    pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.my-masonry-grid_column .project-skeleton {
+  margin-bottom: 20px;
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.my-masonry-grid_column {
+  padding-left: 15px;
+  background-clip: padding-box;
+}
+
+/* Style for the grid items */
+.my-masonry-grid_column > div {
+  margin-bottom: 15px;
+}
+
+
+.project-card {
+  background: #dcd7d0;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  height: auto;
+  display: block;
+}
+
+.project-card h2 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  color: #4e2828;
+}
+
+.description{
+  color: #4e2828;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #4e2828;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #ff72b6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+/* --- Tech tags --- */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px; /* space between tags */
+  margin: 0.5rem 0;
+}
+
+.tech-tag {
+  background-color: #c674a7; 
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px; /* pill shape */
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* --- Lightbox --- */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+/* Carousel buttons */
+.lightbox button.prev,
+.lightbox button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.lightbox button.prev { left: 20px; }
+.lightbox button.next { right: 20px; }
+
+/* Close button */
+.lightbox button.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.3);
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
