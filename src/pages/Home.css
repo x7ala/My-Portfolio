@@ -243,3 +243,128 @@
 .download-btn:hover {
   background: #ff4f95;
 }
+
+
+
+/* ============================= */
+/* MOBILE-FIX REFINED 2 */
+/* ============================= */
+@media (max-width: 768px) {
+
+  /* HOME WRAPPER */
+  .home {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+    padding: 0 0.5rem !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .left-container, .right-section {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* HERO TITLE */
+  .hero-title h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .introduction {
+    margin: 1rem 0 !important;
+    text-align: center !important;
+  }
+
+  /* NAV CARDS (buttons) */
+  .cards-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.8rem !important;
+    width: 70% !important;
+    margin: 0 auto !important; /* centers the container horizontally */
+  }
+
+  .nav-card {
+    width: 90% !important;
+    padding: 0.8rem !important; /* smaller padding */
+  }
+
+  .nav-card h3 {
+    font-size: 1rem !important; /* smaller text */
+  }
+
+  .nav-card .card-icon {
+    font-size: 1.5rem !important; /* smaller icon */
+  }
+
+  /* RIGHT SECTION */
+  .right-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-top: 2rem !important;
+  }
+
+@media (max-width: 768px) {
+  .image-wrapper {
+    width: 150px;          /* same as profile-img */
+    height: 150px;
+    border-radius: 50%;    /* optional if you want it circular too */
+    overflow: hidden;      /* ensures img doesn’t escape */
+    margin: 0 auto;        /* center horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-img {
+    width: 100%;           /* fill wrapper */
+    height: 100%;
+    border-radius: 50%;    /* circle */
+    overflow: hidden;
+  }
+
+  .profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* fills the circle */
+    display: block;
+    border-radius: 50%;    /* ensures circular shape */
+  }
+}
+
+
+  /* SOCIAL ICONS */
+  .social-links-home {
+    justify-content: center !important;
+    margin: 1rem 0 !important;
+  }
+
+  /* TECH ICONS */
+  .tech-icons {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0.6rem !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  /* RESUME BUTTON */
+  .resume-btn {
+    margin: 1rem 0 !important;
+  }
+
+  /* RESUME MODAL */
+  .resume-modal {
+    padding: 0 1rem !important;
+  }
+
+  .resume-iframe {
+    width: 100% !important;
+    height: 400px !important;
+  }
+}
+
+

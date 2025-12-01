@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* ============================= */
+/* NAVBAR BASE STYLES */
+/* ============================= */
 
-/* Navbar container */
 .navbar {
   position: fixed;
   top: 0;
@@ -17,25 +19,50 @@
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  box-sizing: border-box; /* ensures padding is included in width */
-  overflow-x: hidden;      /* prevent horizontal scroll */
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-.myName{
-  margin: 0;           /* remove huge default h1 margin */
-  font-size: 30px;
-  color: #f81d8e;
-  transform: translateY(20px);
+/* ============================= */
+/* LOGO */
+/* ============================= */
 
-  animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 0.5s;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-    font-family: 'Bebas Neue', sans-serif;
+.logo-img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Text next to logo */
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.myName {
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   font-size: 2rem;
   letter-spacing: 2px;
+  color: #f81d8e;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   transform: skewX(-5deg);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.5s;
 }
 
 @keyframes fadeInUp {
@@ -49,58 +76,24 @@
   }
 }
 
-.pf{
-  font-size: 20px;
-  margin: 0;           /* remove default <p> margin */
-  margin-top: 2px;     /* tiny spacing under name */
-  text-align: center;
-  color: #7a1111;
-}
+/* ============================= */
+/* DESKTOP MENU */
+/* ============================= */
 
-/* Logo */
-.logo {
-  display: flex;
-  flex-direction: row;      /* keep logo + text side-by-side */
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-text {
-  display: flex;
-  flex-direction: column;   /* ONLY text stacks vertically */
-  line-height: 1.1;
-}
-
-.logo-img {
-  width: 60px;   /* size of the logo */
-  height: 60px;
-  transition: transform 0.3s ease, filter 0.3s ease; /* smooth hover */
-}
-
-/* Hover effect */
-.logo-img:hover {
-  transform: scale(1.2);  /* slightly bigger on hover */
-  cursor: pointer;
-}
-
-
-
-/* Desktop menu */
 .menu {
   display: flex;
   gap: 2rem;
-  flex-wrap: wrap;
 }
 
 .menu a {
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
   position: relative;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
 
-/* Fancy underline hover effect */
+/* underline hover */
 .menu a::after {
   content: '';
   position: absolute;
@@ -116,28 +109,61 @@
   width: 100%;
 }
 
-/* Mobile toggle (hamburger) */
+/* ============================= */
+/* HAMBURGER */
+/* ============================= */
+
 .toggle {
   display: none;
   font-size: 2rem;
   cursor: pointer;
+  user-select: none;
 }
 
 /* ============================= */
-/* MOBILE RESPONSIVE STYLES */
+/* MOBILE RESPONSIVE */
 /* ============================= */
+
 @media (max-width: 768px) {
+
+  /* shrink navbar padding */
+  .navbar {
+    padding: 1rem 1.2rem;
+  }
+
+  /* shrink logo */
+  .logo-img {
+    width: 45px;
+    height: auto;
+  }
+
+  /* remove skew/animation issues on mobile */
+  .myName {
+    transform: none !important;
+    font-size: 1.5rem;
+    animation: none;
+    opacity: 1;
+  }
+
+  /* hamburger appears */
+  .toggle {
+    display: block;
+  }
+
+  /* mobile menu slide panel */
   .menu {
     position: fixed;
     top: 0;
     right: -100%;
+    width: 80%;
     height: 100vh;
-    width: 60%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background: #111;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
     transition: right 0.4s ease;
+    padding-bottom: 3rem;
   }
 
   .menu.open {
@@ -145,19 +171,6 @@
   }
 
   .menu a {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
-
-  .toggle {
-    display: block;
-  }
-
-
-  .logo img, .logo svg {
-  width: 50px;
-  height: auto;
-}
-
-
-
 }
