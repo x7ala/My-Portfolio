@@ -58,12 +58,120 @@
 }
 
 
+.core-strengths {
+  margin-top: 30px;
+  padding-right: 20px;
+  text-align: left;
+}
+
+
+.strengths-title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #7c4e4a;
+}
+
+.strengths-tags {
+  display: flex;
+  flex-wrap: wrap;           /* allows tag wrapping */
+  gap: 10px;                 /* space between tags */
+  color: #ffffff;
+}
+
+.strength-tag {
+  background: #6d2224;
+  padding: 8px 14px;
+  border-radius: 20px;       /* pill shape */
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;       /* prevents breaking words */
+  transition: 0.25s ease;
+}
+
+.strength-tag:hover {
+  background: rgba(44, 40, 40, 0.25);
+  transform: translateY(-2px);
+}
+
+
+
 
 .left-container {
   width: 50%;  /* takes half of the container */
   text-align: left; /* aligns text inside the div to the left */
   padding-left: 20px; /* adds space inside the div on the left */
 }
+
+.languages-section {
+  margin-top: 20px;
+  text-align: right; /* right-aligned on right section */
+}
+
+.lang-title {
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 35px;
+  font-weight: 600;
+  color: #7c4e4a;
+  justify-content: flex-end;
+}
+
+.lang-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.lang-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.lang-level {
+  font-size: 12px;
+  color: #867f7f;
+  margin-bottom: 4px;
+}
+
+.lang-name {
+  font-weight: 500;
+}
+
+.lang-bars {
+  display: flex;
+  gap: 4px;
+}
+
+.lang-bars div {
+  width: 16px;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.lang-item {
+  margin-bottom: 17px;
+}
+
+.lang-item span {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.filled {
+  background: #832d2d;
+}
+
+.empty {
+  background: #dcdcdc;
+}
+
+
+
 
 .right-section {
   width: 40%;                     /* controls how much space the right side takes */
@@ -309,8 +417,8 @@
 
 @media (max-width: 768px) {
   .image-wrapper {
-    width: 150px;          /* same as profile-img */
-    height: 150px;
+    width: 190px;          /* same as profile-img */
+    height: 190px;
     border-radius: 50%;    /* optional if you want it circular too */
     overflow: hidden;      /* ensures img doesn’t escape */
     margin: 0 auto;        /* center horizontally */

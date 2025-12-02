@@ -54,6 +54,16 @@ export default defineType({
     },
   ],
 },
+
+  {
+  name: "liveDemo",
+  title: "Live Demo URL",
+  type: "url",
+  description: "Optional: Add a link to the live project.",
+  validation: (Rule) => Rule.uri({
+    scheme: ['http', 'https'], // ensures it's a valid URL
+  }).optional()
+},
     
     {
       name: "images",

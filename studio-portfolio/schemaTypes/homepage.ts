@@ -27,6 +27,18 @@ export default defineType({
         options: {
             hotspot: true // lets you crop the image
         }
-    }
+    },
+
+        {
+        name: "certificates",
+        title: "Certificates (Images)",
+        type: "array",
+        of: [
+          {
+            type: "image",
+            options: { hotspot: true }
+          }
+        ]
+      }
   ],
 });

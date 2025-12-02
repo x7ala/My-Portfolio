@@ -151,6 +151,31 @@
   color: #4e2828;
 }
 
+.project-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.project-links a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+
+.link-icon {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* space between icon + text */
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link-icon .icon {
+  font-size: 18px;
+}
+
+
 .description{
   color: #4e2828;
 }
