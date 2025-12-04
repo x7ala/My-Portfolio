@@ -34,7 +34,7 @@ export default defineType({
           { title: "Other", value: "other" },
         ],
         layout: "dropdown", // makes it a dropdown in Sanity Studio
-  },
+      },
     },
     {
       name: "description",

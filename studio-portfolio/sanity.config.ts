@@ -1,13 +1,8 @@
-import { defineConfig } from "sanity";
-import { structureTool } from "sanity/structure";
-import { visionTool } from "@sanity/vision";
-import { schemaTypes } from "./schemaTypes";
-
-import {
-  orderableDocumentListDeskItem,
-  orderRankField,
-  orderRankOrdering,
-} from "@sanity/orderable-document-list";
+import { defineConfig } from "sanity"
+import { deskTool } from "sanity/desk"
+import { visionTool } from "@sanity/vision"
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list"
+import { schemaTypes } from "./schemaTypes"
 
 export default defineConfig({
   name: "default",
@@ -17,30 +12,35 @@ export default defineConfig({
   dataset: "production",
 
   plugins: [
-    structureTool({
+    deskTool({
       structure: (S, context) =>
         S.list()
           .title("Content")
           .items([
-            // ⭐ Draggable "Projects" list
+            // ⭐ Draggable Projects
             orderableDocumentListDeskItem({
               type: "project",
-              title: "Projects (Drag to Sort)",
+              title: "Projects",
               S,
               context,
             }),
 
-            // All other doc types except "project"
-            ...S.documentTypeListItems().filter(
-              (item) => item.getId() !== "project"
-            ),
+            // ⭐ Homepage
+            S.documentTypeListItem("homepage").title("Homepage Content"),
+
+            // ⭐ Experience
+            S.documentTypeListItem("experience").title("Experience"),
+
+            // ⭐ Include all other schemas automatically
+            ...S.documentTypeListItems().filter((item) => {
+              const id = item.getId() ?? ""
+              return !["project", "homepage", "experience"].includes(id)
+            }),
           ]),
     }),
 
     visionTool(),
   ],
 
-  schema: {
-    types: schemaTypes,
-  },
-});
+  schema: { types: schemaTypes },
+})
