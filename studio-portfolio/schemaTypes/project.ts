@@ -72,6 +72,15 @@ export default defineType({
       of: [{ type: "image", options: { hotspot: true } }],
     },
     {
+      name: "videoFile",
+      title: "Project Video (Optional)",
+      type: "file",
+      description: "Upload a video file (e.g., mp4) to show on the project card.",
+      options: {
+        accept: "video/*"
+      }
+    },
+    {
       name: "github",
       title: "GitHub Repo",
       type: "url",

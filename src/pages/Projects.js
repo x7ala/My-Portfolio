@@ -4,7 +4,7 @@ import "./Projects.css";
 import { client, urlFor } from "../sanityClient";
 import { PortableText } from "@portabletext/react";
 import { FaProjectDiagram, FaGithub } from "react-icons/fa";
- 
+
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,6 +29,9 @@ export default function Projects() {
           technologies,
           images[] {
             asset->{_id,url}
+          },
+          videoFile {
+            asset->{url}
           }
         }`
       )
@@ -92,59 +95,69 @@ export default function Projects() {
         >
           {loading
             ? Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="project-skeleton"></div>
-              ))
+              <div key={i} className="project-skeleton"></div>
+            ))
             : filteredProjects.map((project, i) => (
-                <div
-                  key={i}
-                  className="project-card"
-                  onClick={() =>
-                    project.images?.length
-                      ? openLightbox(
-                          project.images.map((img) => img.asset.url)
-                        )
-                      : null
-                  }
-                >
-                  {project.images?.[0] && (
-                    <img
-                      src={project.images[0].asset.url}
-                      alt={project.title}
-                    />
+              <div
+                key={i}
+                className="project-card"
+                onClick={() =>
+                  project.images?.length
+                    ? openLightbox(
+                      project.images.map((img) => img.asset.url)
+                    )
+                    : null
+                }
+              >
+                {project.videoFile ? (
+                  <video
+                    src={project.videoFile.asset.url}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="project-media"
+                  />
+                ) : project.images?.[0] ? (
+                  <img
+                    src={project.images[0].asset.url}
+                    alt={project.title}
+                    className="project-media"
+                  />
+                ) : null}
+
+                <h2>{project.title}</h2>
+
+                <div className="tech-tags">
+                  {project.technologies?.map((tech, idx) => (
+                    <span key={idx} className="tech-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="description">
+                  {project.description && (
+                    <PortableText value={project.description} />
+                  )}
+                </div>
+
+                <div className="project-links">
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer" className="link-icon">
+                      <FaGithub className="icon" />
+                      GitHub
+                    </a>
                   )}
 
-                  <h2>{project.title}</h2>
-
-                  <div className="tech-tags">
-                    {project.technologies?.map((tech, idx) => (
-                      <span key={idx} className="tech-tag">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="description">
-                    {project.description && (
-                      <PortableText value={project.description} />
-                    )}
-                  </div>
-
-                  <div className="project-links">
-                    {project.github && (
-                      <a href={project.github} target="_blank" rel="noreferrer" className="link-icon">
-                        <FaGithub className="icon" />
-                          GitHub
-                      </a>
-                    )}
-
-                    {project.liveDemo && (
-                      <a href={project.liveDemo} target="_blank" rel="noreferrer">
-                        Live Demo ↗
-                      </a>
-                    )}
-                  </div>
+                  {project.liveDemo && (
+                    <a href={project.liveDemo} target="_blank" rel="noreferrer">
+                      Live Demo ↗
+                    </a>
+                  )}
                 </div>
-              ))}
+              </div>
+            ))}
         </Masonry>
       </div>
 
