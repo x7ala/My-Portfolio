@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
 import "./Projects.css";
-import { client, urlFor } from "../sanityClient";
+import { client } from "../sanityClient";
 import { PortableText } from "@portabletext/react";
 import { FaProjectDiagram, FaGithub, FaPlayCircle } from "react-icons/fa";
 
