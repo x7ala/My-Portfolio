@@ -3,12 +3,12 @@ import Masonry from "react-masonry-css";
 import "./Projects.css";
 import { client, urlFor } from "../sanityClient";
 import { PortableText } from "@portabletext/react";
-import { FaProjectDiagram, FaGithub } from "react-icons/fa";
+import { FaProjectDiagram, FaGithub, FaPlayCircle } from "react-icons/fa";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedImages, setSelectedImages] = useState(null);
+  const [selectedMedia, setSelectedMedia] = useState(null);
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [filter, setFilter] = useState("all");
 
@@ -42,22 +42,22 @@ export default function Projects() {
       .catch(console.error);
   }, []);
 
-  const openLightbox = (images) => {
-    setSelectedImages(images);
+  const openLightbox = (media) => {
+    setSelectedMedia(media);
     setCarouselIndex(0);
   };
 
-  const closeLightbox = () => setSelectedImages(null);
+  const closeLightbox = () => setSelectedMedia(null);
 
   const nextImage = (e) => {
     e.stopPropagation();
-    setCarouselIndex((prev) => (prev + 1) % selectedImages.length);
+    setCarouselIndex((prev) => (prev + 1) % selectedMedia.length);
   };
 
   const prevImage = (e) => {
     e.stopPropagation();
     setCarouselIndex(
-      (prev) => (prev - 1 + selectedImages.length) % selectedImages.length
+      (prev) => (prev - 1 + selectedMedia.length) % selectedMedia.length
     );
   };
 
@@ -101,30 +101,42 @@ export default function Projects() {
               <div
                 key={i}
                 className="project-card"
-                onClick={() =>
-                  project.images?.length
-                    ? openLightbox(
-                      project.images.map((img) => img.asset.url)
-                    )
-                    : null
-                }
+                onClick={() => {
+                  const media = [];
+                  if (project.videoFile) {
+                    media.push({ type: "video", url: project.videoFile.asset.url });
+                  }
+                  if (project.images?.length) {
+                    project.images.forEach(img => {
+                      media.push({ type: "image", url: img.asset.url });
+                    });
+                  }
+                  if (media.length > 0) {
+                    openLightbox(media);
+                  }
+                }}
               >
-                {project.videoFile ? (
-                  <video
-                    src={project.videoFile.asset.url}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="project-media"
-                  />
-                ) : project.images?.[0] ? (
-                  <img
-                    src={project.images[0].asset.url}
-                    alt={project.title}
-                    className="project-media"
-                  />
-                ) : null}
+                <div className="project-media-container">
+                  {project.videoFile ? (
+                    <>
+                      <video
+                        src={project.videoFile.asset.url}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="project-media"
+                      />
+                      <FaPlayCircle className="video-play-icon" />
+                    </>
+                  ) : project.images?.[0] ? (
+                    <img
+                      src={project.images[0].asset.url}
+                      alt={project.title}
+                      className="project-media"
+                    />
+                  ) : null}
+                </div>
 
                 <h2>{project.title}</h2>
 
@@ -161,18 +173,36 @@ export default function Projects() {
         </Masonry>
       </div>
 
-      {selectedImages && (
+      {selectedMedia && (
         <div className="lightbox" onClick={closeLightbox}>
-          <button className="prev" onClick={prevImage}>
-            ‹
-          </button>
-          <img
-            src={selectedImages[carouselIndex]}
-            alt="Project Preview"
-          />
-          <button className="next" onClick={nextImage}>
-            ›
-          </button>
+          {selectedMedia.length > 1 && (
+            <button className="prev" onClick={prevImage}>
+              ‹
+            </button>
+          )}
+          
+          {selectedMedia[carouselIndex].type === "video" ? (
+            <video
+              src={selectedMedia[carouselIndex].url}
+              controls
+              autoPlay
+              className="lightbox-media"
+              onClick={(e) => e.stopPropagation()}
+            />
+          ) : (
+            <img
+              src={selectedMedia[carouselIndex].url}
+              alt="Project Preview"
+              className="lightbox-media"
+              onClick={(e) => e.stopPropagation()}
+            />
+          )}
+
+          {selectedMedia.length > 1 && (
+            <button className="next" onClick={nextImage}>
+              ›
+            </button>
+          )}
           <button className="close" onClick={closeLightbox}>
             ✕
           </button>

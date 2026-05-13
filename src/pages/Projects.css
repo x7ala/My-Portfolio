@@ -159,12 +159,29 @@
   transform: translateY(-5px);
 }
 
+.project-media-container {
+  position: relative;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
 .project-card .project-media {
   width: 100%;
   border-radius: 8px;
-  margin-bottom: 0.5rem;
   height: auto;
   display: block;
+}
+
+.video-play-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .project-card h2 {
@@ -234,10 +251,11 @@
   z-index: 1000;
 }
 
-.lightbox img {
+.lightbox-media {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
+  outline: none;
 }
 
 /* --- Tech tags --- */
@@ -274,11 +292,12 @@
   flex-direction: column;
 }
 
-.lightbox img {
+.lightbox-media {
   max-width: 90%;
   max-height: 80%;
   margin-bottom: 20px;
   border-radius: 8px;
+  outline: none;
 }
 
 /* Carousel buttons */
