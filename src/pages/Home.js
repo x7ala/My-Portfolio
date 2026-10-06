@@ -125,14 +125,14 @@ function Home() {
         </div>
 
         <div className='image-wrapper'>
-          <div className='profile-img'>
-            <img
-              src={homeData?.profileImage ? urlFor(homeData.profileImage).url() : profilePic}
-              alt="Hala"
-              className="profile-img"
-            />
-          </div>
-        </div>
+      <div className='profile-img'>
+        <img
+          src={homeData?.profileImage ? urlFor(homeData.profileImage).url() : ''}
+          alt="Hala"
+          className="profile-img"
+        />
+      </div>
+    </div>
 
         <div className="tech-icons">
           <FaReact size={40} color="#61DBFB" title="React" />
