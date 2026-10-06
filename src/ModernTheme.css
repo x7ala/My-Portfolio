@@ -1,0 +1,899 @@
+/* ==========================================================================
+   MODERN THEME - SLEEK, EDITORIAL & PROFESSIONAL WITH BABY PINK ACCENTS
+   ========================================================================== */
+
+.modern-theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Canvas & Surfaces */
+  --modern-bg-base: #FAF7F5;
+  --modern-surface: #FFFFFF;
+  --modern-surface-subtle: #FDFBFB;
+  --modern-surface-glass: rgba(255, 255, 255, 0.82);
+  --modern-border-subtle: rgba(235, 210, 220, 0.55);
+  --modern-border-glass: rgba(246, 210, 224, 0.5);
+
+  /* Curated Baby Pink Palette */
+  --pink-50: #FFF5F8;
+  --pink-100: #FDF0F4;
+  --pink-200: #FCE4EC;
+  --pink-300: #F8CAD8;
+  --pink-400: #F4AABF;
+  --pink-500: #E685A0;
+  --pink-600: #CF6181;
+  --pink-700: #A83E5E;
+  
+  /* Typography Colors (Rich Velvety Espresso & Rosewood) */
+  --text-primary: #2A1D21;
+  --text-secondary: #574249;
+  --text-muted: #856E75;
+  --text-accent: #A83E5E;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(90, 50, 65, 0.04);
+  --shadow-md: 0 8px 24px -4px rgba(90, 50, 65, 0.08), 0 2px 6px -1px rgba(90, 50, 65, 0.04);
+  --shadow-lg: 0 16px 36px -6px rgba(90, 50, 65, 0.12), 0 4px 12px -2px rgba(90, 50, 65, 0.05);
+  --shadow-pink: 0 12px 28px -4px rgba(230, 133, 160, 0.35);
+  --shadow-pink-sm: 0 4px 14px rgba(230, 133, 160, 0.25);
+
+  font-family: var(--font-sans);
+  background-color: var(--modern-bg-base);
+  background-image: 
+    radial-gradient(circle at 85% 8%, rgba(248, 202, 216, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 10% 80%, rgba(252, 228, 236, 0.35) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ==========================================================================
+   GLOBAL OVERRIDES (when modern theme active)
+   ========================================================================== */
+.modern-theme html,
+.modern-theme body,
+.modern-theme #root {
+  font-family: var(--font-sans) !important;
+  background-color: var(--modern-bg-base) !important;
+  color: var(--text-primary) !important;
+}
+
+.modern-theme .page-container {
+  padding-top: 90px;
+  min-height: calc(100vh - 160px);
+}
+
+/* Smooth customized baby-pink scrollbars */
+.modern-theme ::-webkit-scrollbar-track {
+  background: var(--pink-50);
+}
+
+.modern-theme ::-webkit-scrollbar-thumb {
+  background: var(--pink-300);
+  border-radius: 10px;
+  border: 2px solid var(--pink-50);
+}
+
+.modern-theme ::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-400);
+}
+
+/* ==========================================================================
+   NAVBAR - Sleek Frosted Glass Design
+   ========================================================================== */
+.modern-theme .navbar {
+  background: var(--modern-surface-glass) !important;
+  backdrop-filter: blur(18px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+  border-bottom: 1px solid var(--modern-border-subtle) !important;
+  box-shadow: 0 4px 24px -2px rgba(90, 50, 65, 0.04) !important;
+  padding: 0.95rem 3rem !important;
+  color: var(--text-primary) !important;
+  transition: all 0.3s ease;
+}
+
+.modern-theme .logo {
+  gap: 12px;
+}
+
+.modern-theme .logo-img {
+  width: 46px;
+  height: 46px;
+  filter: drop-shadow(0 2px 6px rgba(207, 97, 129, 0.2));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modern-theme .logo-img:hover {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.modern-theme .myName {
+  font-family: var(--font-sans) !important;
+  font-size: 1.25rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
+  color: var(--pink-700) !important;
+  text-shadow: none !important;
+  transform: none !important;
+  background: linear-gradient(135deg, var(--pink-600) 0%, var(--pink-700) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 2px 4px;
+}
+
+.modern-theme .menu {
+  gap: 2.2rem !important;
+}
+
+.modern-theme .menu a {
+  color: var(--text-secondary) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.25s ease !important;
+}
+
+.modern-theme .menu a::after {
+  display: none !important;
+}
+
+.modern-theme .menu a:hover {
+  color: var(--pink-700) !important;
+  background-color: var(--pink-200);
+  transform: translateY(-1px);
+}
+
+.modern-theme .toggle {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   HOME PAGE - Editorial Split Layout
+   ========================================================================== */
+.modern-theme .home {
+  background: transparent !important;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 20px 30px 60px 30px !important;
+  gap: 50px;
+}
+
+.modern-theme .left-container {
+  width: 52% !important;
+  padding-left: 0 !important;
+}
+
+.modern-theme .hero-title {
+  margin-bottom: 8px;
+}
+
+.modern-theme .hero-title h1,
+.modern-theme .typewriter-title {
+  font-family: var(--font-sans) !important;
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.25 !important;
+  color: var(--text-primary) !important;
+  margin: 0;
+}
+
+.modern-theme .introduction {
+  font-size: 1.1rem !important;
+  line-height: 1.75 !important;
+  color: var(--text-secondary) !important;
+  margin-top: 18px !important;
+  max-width: 600px;
+}
+
+.modern-theme .introduction p {
+  font-size: 1.1rem !important;
+  line-height: 1.75 !important;
+  color: var(--text-secondary) !important;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+
+/* Modern Nav Cards */
+.modern-theme .cards-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+  margin-top: 36px !important;
+  justify-content: stretch !important;
+}
+
+.modern-theme .nav-card {
+  width: auto !important;
+  height: auto !important;
+  min-height: 200px !important;
+  background: var(--modern-surface) !important;
+  border: 1px solid var(--modern-border-subtle) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--shadow-md) !important;
+  padding: 28px 18px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-theme .nav-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pink-300), var(--pink-500));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modern-theme .nav-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: var(--shadow-pink) !important;
+  border-color: var(--pink-300) !important;
+}
+
+.modern-theme .nav-card:hover::before {
+  opacity: 1;
+}
+
+.modern-theme .nav-card .card-icon {
+  font-size: 2rem !important;
+  color: var(--pink-600) !important;
+  background: var(--pink-100);
+  padding: 14px;
+  border-radius: 16px;
+  box-sizing: content-box;
+  margin-bottom: 4px !important;
+  transition: all 0.3s ease;
+}
+
+.modern-theme .nav-card:hover .card-icon {
+  background: var(--pink-200);
+  color: var(--pink-700);
+  transform: scale(1.1);
+}
+
+.modern-theme .nav-card .card-title {
+  font-family: var(--font-sans) !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin: 0 !important;
+}
+
+/* Core Strengths Tags */
+.modern-theme .core-strengths {
+  margin-top: 40px !important;
+  padding-right: 0 !important;
+}
+
+.modern-theme .strengths-title {
+  font-family: var(--font-sans) !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+  color: var(--text-primary) !important;
+  margin-bottom: 16px !important;
+}
+
+.modern-theme .strengths-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
+.modern-theme .strength-tag {
+  background: var(--modern-surface) !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--modern-border-subtle) !important;
+  padding: 8px 18px !important;
+  border-radius: 9999px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.modern-theme .strength-tag:hover {
+  background: var(--pink-100) !important;
+  border-color: var(--pink-300) !important;
+  color: var(--pink-700) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-pink-sm) !important;
+}
+
+/* ==========================================================================
+   RIGHT SECTION (Profile, Tech, Resume, Languages)
+   ========================================================================== */
+.modern-theme .right-section {
+  width: 44% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin-top: 10px !important;
+}
+
+.modern-theme .social-links-home {
+  margin-top: 0 !important;
+  margin-bottom: 24px !important;
+  gap: 14px !important;
+}
+
+.modern-theme .social-links-home .social-icon {
+  background: var(--modern-surface);
+  border: 1px solid var(--modern-border-subtle);
+  color: var(--text-secondary) !important;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.modern-theme .social-links-home .social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.modern-theme .social-links-home .social-icon:hover {
+  background: var(--pink-200);
+  border-color: var(--pink-400);
+  color: var(--pink-700) !important;
+  transform: translateY(-3px) scale(1.08) !important;
+  box-shadow: var(--shadow-pink-sm);
+}
+
+/* Profile Photo Halo */
+.modern-theme .image-wrapper {
+  width: 300px !important;
+  height: 300px !important;
+  border-radius: 50% !important;
+  box-shadow: 
+    0 0 0 6px var(--modern-bg-base),
+    0 0 0 10px var(--pink-300),
+    0 20px 40px -8px rgba(90, 50, 65, 0.16) !important;
+  margin: 0 auto 26px auto !important;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.modern-theme .image-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.modern-theme .profile-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+}
+
+/* Tech Icons Ribbon */
+.modern-theme .tech-icons {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 14px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-top: 14px !important;
+  padding: 10px 18px;
+  background: var(--modern-surface-glass);
+  border: 1px solid var(--modern-border-subtle);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.modern-theme .tech-icons svg {
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+}
+
+.modern-theme .tech-icons svg:hover {
+  transform: translateY(-4px) scale(1.22) !important;
+}
+
+/* Resume Pill Button */
+.modern-theme .resume-btn {
+  background: linear-gradient(135deg, var(--pink-500) 0%, var(--pink-600) 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  padding: 13px 34px !important;
+  border-radius: 9999px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.98rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px;
+  box-shadow: var(--shadow-pink) !important;
+  margin-top: 26px !important;
+  cursor: pointer;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.modern-theme .resume-btn:hover {
+  background: linear-gradient(135deg, var(--pink-600) 0%, var(--pink-700) 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 32px -4px rgba(207, 97, 129, 0.45) !important;
+}
+
+/* Languages Section Modernization */
+.modern-theme .languages-section {
+  width: 100% !important;
+  max-width: 360px;
+  margin: 36px auto 0 auto !important;
+  text-align: left !important;
+  background: var(--modern-surface);
+  border: 1px solid var(--modern-border-subtle);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.modern-theme .lang-title {
+  font-family: var(--font-sans) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+  text-align: left !important;
+}
+
+.modern-theme .lang-item {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 16px !important;
+}
+
+.modern-theme .lang-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.modern-theme .lang-left {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px;
+}
+
+.modern-theme .lang-name {
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+}
+
+.modern-theme .lang-level {
+  font-family: var(--font-sans) !important;
+  font-size: 0.78rem !important;
+  color: var(--text-muted) !important;
+  font-weight: 500;
+}
+
+.modern-theme .lang-bars {
+  display: flex !important;
+  gap: 5px !important;
+}
+
+.modern-theme .lang-bars div {
+  width: 18px !important;
+  height: 6px !important;
+  border-radius: 9999px !important;
+}
+
+.modern-theme .filled {
+  background: linear-gradient(90deg, var(--pink-400), var(--pink-500)) !important;
+}
+
+.modern-theme .empty {
+  background: #EAE2E5 !important;
+}
+
+/* Resume Modal */
+.modern-theme .resume-content {
+  border-radius: 20px !important;
+  border: 1px solid var(--modern-border-subtle) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.modern-theme .download-btn {
+  background: var(--pink-500) !important;
+  border-radius: 9999px !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  transform: none !important;
+}
+
+.modern-theme .download-btn:hover {
+  background: var(--pink-600) !important;
+}
+
+/* ==========================================================================
+   PROJECTS PAGE - Modern Editorial Grid
+   ========================================================================== */
+.modern-theme .projects-page {
+  background-color: transparent !important;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 30px 30px 80px 30px !important;
+}
+
+.modern-theme .projects-header h1 {
+  font-family: var(--font-sans) !important;
+  font-size: 2.4rem !important;
+  font-weight: 800 !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.02em;
+}
+
+.modern-theme .heading-icon {
+  color: var(--pink-600) !important;
+}
+
+.modern-theme .projects-subtitle {
+  font-family: var(--font-sans) !important;
+  font-size: 1.05rem !important;
+  color: var(--text-secondary) !important;
+  max-width: 620px;
+  line-height: 1.6 !important;
+}
+
+.modern-theme .projects-header select,
+.modern-theme .projects-page select {
+  font-family: var(--font-sans) !important;
+  padding: 10px 18px !important;
+  border-radius: 12px !important;
+  border: 1px solid var(--modern-border-subtle) !important;
+  background-color: var(--modern-surface) !important;
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  box-shadow: var(--shadow-sm) !important;
+  outline: none !important;
+}
+
+.modern-theme .projects-page select:focus {
+  border-color: var(--pink-400) !important;
+  box-shadow: 0 0 0 3px rgba(244, 170, 191, 0.25) !important;
+}
+
+.modern-theme .project-card {
+  background: var(--modern-surface) !important;
+  border: 1px solid var(--modern-border-subtle) !important;
+  border-radius: 18px !important;
+  padding: 1.25rem !important;
+  box-shadow: var(--shadow-md) !important;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.modern-theme .project-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: var(--shadow-pink) !important;
+  border-color: var(--pink-300) !important;
+}
+
+.modern-theme .project-card .project-media {
+  border-radius: 12px !important;
+}
+
+.modern-theme .project-card h2 {
+  font-family: var(--font-sans) !important;
+  font-size: 1.28rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin-top: 12px !important;
+}
+
+.modern-theme .tech-tag {
+  background-color: var(--pink-100) !important;
+  color: var(--pink-700) !important;
+  border: 1px solid var(--pink-300) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  font-size: 0.8rem !important;
+  border-radius: 9999px !important;
+  padding: 4px 10px !important;
+}
+
+.modern-theme .project-card .description,
+.modern-theme .project-card p {
+  color: var(--text-secondary) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+.modern-theme .project-card a,
+.modern-theme .link-icon {
+  color: var(--pink-600) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease;
+}
+
+.modern-theme .project-card a:hover {
+  color: var(--pink-700) !important;
+}
+
+/* ==========================================================================
+   EXPERIENCE PAGE - Minimalist Luxury Timeline
+   ========================================================================== */
+.modern-theme .experience-wrapper {
+  background: transparent !important;
+}
+
+.modern-theme .experience-page {
+  max-width: 860px !important;
+  margin: 0 auto;
+  padding: 30px 20px 80px 20px !important;
+}
+
+.modern-theme .experience-title {
+  font-family: var(--font-sans) !important;
+  font-size: 2.4rem !important;
+  font-weight: 800 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 40px;
+}
+
+.modern-theme .timeline-line {
+  background: linear-gradient(180deg, var(--pink-400) 0%, var(--pink-300) 60%, rgba(248, 202, 216, 0.2) 100%) !important;
+  width: 2px !important;
+}
+
+.modern-theme .timeline-dot {
+  background: var(--pink-500) !important;
+  width: 14px !important;
+  height: 14px !important;
+  left: -39px !important;
+  box-shadow: 
+    0 0 0 4px var(--modern-bg-base),
+    0 0 0 7px var(--pink-200) !important;
+}
+
+.modern-theme .timeline-content {
+  background: var(--modern-surface) !important;
+  border: 1px solid var(--modern-border-subtle) !important;
+  border-radius: 18px !important;
+  padding: 24px 28px !important;
+  box-shadow: var(--shadow-md) !important;
+  transition: all 0.3s ease;
+}
+
+.modern-theme .timeline-content:hover {
+  box-shadow: var(--shadow-pink) !important;
+  border-color: var(--pink-300) !important;
+  transform: translateX(4px);
+}
+
+.modern-theme .company-name {
+  font-family: var(--font-sans) !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+}
+
+.modern-theme .company-logo {
+  border: 1px solid var(--modern-border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.modern-theme .timeline-content h4 {
+  font-family: var(--font-sans) !important;
+  color: var(--pink-700) !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  margin: 6px 0 10px 0 !important;
+}
+
+.modern-theme .location-text {
+  color: var(--text-muted) !important;
+  font-size: 0.9rem !important;
+}
+
+.modern-theme .timeline-content p {
+  color: var(--text-secondary) !important;
+  line-height: 1.65 !important;
+}
+
+.modern-theme .timeline-dates {
+  display: inline-block !important;
+  background: var(--pink-100) !important;
+  color: var(--pink-700) !important;
+  border: 1px solid var(--pink-300) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  padding: 4px 12px !important;
+  border-radius: 9999px !important;
+  margin-top: 14px !important;
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   CONTACT PAGE - Elevated Card Form
+   ========================================================================== */
+.modern-theme .contact-container {
+  max-width: 520px !important;
+  background: var(--modern-surface) !important;
+  border: 1px solid var(--modern-border-subtle) !important;
+  border-radius: 24px !important;
+  padding: 38px 34px !important;
+  box-shadow: var(--shadow-lg) !important;
+  margin: 30px auto 80px auto !important;
+}
+
+.modern-theme .contact-title {
+  font-family: var(--font-sans) !important;
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 8px !important;
+}
+
+.modern-theme .subtitle {
+  font-family: var(--font-sans) !important;
+  color: var(--text-secondary) !important;
+  font-size: 1rem !important;
+  margin-bottom: 24px !important;
+}
+
+.modern-theme .contact-form input,
+.modern-theme .contact-form textarea {
+  font-family: var(--font-sans) !important;
+  background-color: var(--pink-50) !important;
+  border: 1px solid var(--modern-border-subtle) !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-size: 0.95rem !important;
+  color: var(--text-primary) !important;
+  transition: all 0.25s ease !important;
+}
+
+.modern-theme .contact-form input:focus,
+.modern-theme .contact-form textarea:focus {
+  background-color: #FFFFFF !important;
+  border-color: var(--pink-400) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 4px rgba(244, 170, 191, 0.25) !important;
+}
+
+.modern-theme .contact-form button {
+  background: linear-gradient(135deg, var(--pink-500) 0%, var(--pink-600) 100%) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 14px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3px;
+  box-shadow: var(--shadow-pink) !important;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+.modern-theme .contact-form button:hover {
+  background: linear-gradient(135deg, var(--pink-600) 0%, var(--pink-700) 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 16px 28px -4px rgba(207, 97, 129, 0.4) !important;
+}
+
+/* ==========================================================================
+   FOOTER - Warm, Cohesive Editorial Finish
+   ========================================================================== */
+.modern-theme .footer {
+  background: var(--modern-surface) !important;
+  border-top: 1px solid var(--modern-border-subtle) !important;
+  color: var(--text-secondary) !important;
+  padding: 24px 3rem !important;
+  box-shadow: 0 -4px 20px rgba(90, 50, 65, 0.03);
+}
+
+.modern-theme .footer-left .contact-item p {
+  font-family: var(--font-sans) !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin: 0 0 6px 0;
+}
+
+.modern-theme .footer-left .icon {
+  color: var(--pink-600) !important;
+}
+
+.modern-theme .footer-left span {
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.modern-theme .footer-right {
+  display: flex;
+  gap: 12px;
+}
+
+.modern-theme .footer-right a {
+  background: var(--pink-100);
+  border: 1px solid var(--pink-300);
+  color: var(--pink-700) !important;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0 !important;
+  transition: all 0.25s ease !important;
+}
+
+.modern-theme .footer-right a:hover {
+  background: var(--pink-500);
+  color: #FFFFFF !important;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-pink-sm);
+}
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS (Modern Theme)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .modern-theme .cards-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .modern-theme .navbar {
+    padding: 0.9rem 1.4rem !important;
+  }
+  
+  .modern-theme .home {
+    flex-direction: column !important;
+    padding: 10px 16px 40px 16px !important;
+    gap: 30px;
+  }
+
+  .modern-theme .left-container,
+  .modern-theme .right-section {
+    width: 100% !important;
+  }
+
+  .modern-theme .hero-title h1,
+  .modern-theme .typewriter-title {
+    font-size: 1.85rem !important;
+  }
+
+  .modern-theme .cards-container {
+    width: 100% !important;
+  }
+
+  .modern-theme .footer {
+    padding: 20px !important;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .modern-theme .footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

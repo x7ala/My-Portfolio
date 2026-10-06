@@ -4,6 +4,7 @@ import { ReactComponent as AzureIcon } from '../assets/images/azure.svg';
 import { ReactComponent as UnityIcon } from '../assets/images/Unity.svg';
 import { ReactComponent as UnrealIcon } from '../assets/images/unreal-engine.svg';
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaReact, FaLaravel, FaHtml5, FaCss3Alt, FaDownload, FaProjectDiagram, FaBriefcase, FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { SiJavascript, SiMysql, SiPython, SiTypescript } from 'react-icons/si';
 import { Typewriter } from 'react-simple-typewriter';
@@ -13,6 +14,7 @@ import { client, urlFor } from "../sanityClient";
 function Home() {
   const [homeData, setHomeData] = useState(null);
   const [showResume, setShowResume] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     client
@@ -70,17 +72,17 @@ function Home() {
         </div>
 
         <div className="cards-container">
-          <div className="nav-card" onClick={() => window.location.href = "/projects"}>
+          <div className="nav-card" onClick={() => navigate("/projects")}>
             <FaProjectDiagram className="card-icon" />
             <h3 className="card-title">Projects</h3>
           </div>
 
-          <div className="nav-card" onClick={() => window.location.href = "/experience"}>
+          <div className="nav-card" onClick={() => navigate("/experience")}>
             <FaBriefcase className="card-icon" />
             <h3 className="card-title">Experience</h3>
           </div>
 
-          <div className="nav-card" onClick={() => window.location.href = "/contact"}>
+          <div className="nav-card" onClick={() => navigate("/contact")}>
             <FaEnvelope className="card-icon" />
             <h3 className="card-title">Contact Me</h3>
           </div>
